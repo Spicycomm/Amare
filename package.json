@@ -1,0 +1,15 @@
+{
+  "name": "amare",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Everton Lima <ever-tonlima@hotmail.com> (http://evertondelima.com.br/)",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}

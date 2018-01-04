@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Amare</title>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/base/geral.css">
+	<link rel="stylesheet" href="css/layout/modal.css">
+	<link rel="stylesheet" href="css/module/form.css">
+	<style>
+
+		.header {
+			width: 100%;
+			text-align: center;
+			margin-bottom: 50px;
+		}
+
+		.header__search {
+			background: #f9ae3a;
+			height: 60px;
+			padding: 10px;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+		}
+
+
+		.logo__item {
+			
+		}
+
+		.logo__image {
+			margin-top: 50px;
+			max-width: 100%;
+		}
+
+		.nav {
+			margin-top: 60px;
+			background: #FFF;
+			transition: 2s;
+		}
+
+		.nav.isFixed {
+			position: fixed;
+			top: -61px;
+			left: 0;
+			width: 100%;
+			height: 80px;
+			display: flex;
+			align-items: center;
+			z-index: 5;
+			transition: 2s;
+		}
+
+		.nav__list {
+			display: flex;
+			margin: auto;
+			justify-content: center;
+			transition: 2s;
+		}
+		
+		.nav__item {
+			margin: auto 35px;
+			border-bottom: 4px solid transparent;
+			padding: 2px;
+			text-align: center;
+			transition: .5s border-bottom-color;
+			position: relative;
+		}
+		
+		
+
+		.nav__item:after {
+			content: "";
+			width: 114%;
+			height: 0;
+			background-color: #872531;
+			display: table;
+			position: absolute;
+			left: 50%;
+			margin: 5px auto;
+			margin-left: -57%;
+			transition: .4s;
+		}
+
+		.nav__item:hover:after {
+			height: 5px;
+			transition: .4s;
+		}
+
+		.nav__link {
+			text-transform: uppercase;
+			font-size: 18px;
+			color: #872531;
+		}
+		
+		/* Main */
+
+		.main {
+			background: #f9ae3a;
+		}
+
+
+		/* Products */
+		
+		.main__products {
+			display: flex;
+		}
+		
+		
+		.product {
+			width: 349px;
+		}
+
+		.product:not(:nth-child(3n)) {
+			margin-right: 61px;
+		}
+
+		.product__item {
+			margin: 0;
+			border-top: 10px solid #872531;
+		}
+		
+		.product__item:after {
+			content: "";
+			display: block;
+			width: 70px;
+			height: 40px;
+			margin: auto;
+			background-image: url(images/detalhe-botao.png);
+			background-repeat: no-repeat;
+			background-position: center top;
+		}
+
+		.product__image {
+			max-width: 100%;
+		}
+
+		.product__name {
+			margin-top: 15px;
+			text-align: center;
+			text-transform: uppercase;
+			color: #FFF;
+			font-size: 19px;
+			line-height: 40px;
+			background: #872531;
+			padding: 9px;
+			height: 60px;
+			position: relative;
+			cursor: pointer;
+		}
+		
+		.product__name:after {
+			content: "";
+			width: 100%;
+			height: 0;
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			background-color: rgba(255, 255, 255, 0.1);
+			transition: .3s;
+		}
+
+		.product__name:hover:after {
+			height: 100%;
+			transition: .3s;
+		}
+
+		/* Banner Amare */
+
+		.message-amare {
+			margin-top: 40px;
+			background-image: url("images/banner-msg-amare.png");
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			height: 480px;
+			padding-top: 30px;
+			border: 2px solid #872531;
+		}
+
+		.message__text {
+			color: #872531;
+			text-align: center;
+			font-size: 22px;
+			text-transform: uppercase;
+			word-spacing: 8px;
+			line-height: 35px;
+		}
+
+		.message__text:last-child {
+			margin-top: 40px;
+		}
+
+		/* Parcel */
+
+		.parcel {
+			margin-top: 90px;
+			padding-bottom: 60px;
+		}
+		
+		.parcel__content {
+			width: 100%;
+		}
+
+		.parcel__content:before,
+		.parcel__content:after {
+			content: '';
+			display: table;
+		}
+
+		.parcel__content:after {
+			clear: both;
+		}
+
+		.card-parcel {
+			margin-top: 60px;
+			background: #FFF;
+			width: 44%;
+			text-align: center;
+			text-transform: uppercase;
+			padding: 8px 15px;
+			float: left;
+			vertical-align: middle;
+		}
+
+		.card-parcel__title {
+			background: #872531;
+			color: #FFF;
+			font-size: 25px;
+			padding: 12px;
+			position: relative;
+			width: 108%;
+			right: 24px;
+		}
+
+		.card-parcel__description {
+			color: #872531;
+			word-spacing: 3px;
+			line-height: 21px;
+		}
+
+		.amare-media {
+			width: 56%;
+			float: left;
+		}
+
+		.parcel__video img {
+			width: 100%;
+		}
+		
+		.btn {
+			width: 370px;
+			height: 65px;
+			text-transform: uppercase;
+			display: block;
+			cursor: pointer;
+		}
+
+		.btn--center {
+			margin-right: auto;
+			margin-left: auto;
+		}
+
+		.btn-parcel {
+			margin-top: 60px;
+			margin-bottom: 10px;
+			color: #872531;
+			font-weight: bold;
+			font-size: 18px;
+			background: #FFF;
+			border: 2px solid #872531;
+			position: relative;
+			transition: all .3s;
+		}
+		
+		.btn-parcel:after {
+			content: "Clique e faça o seu pedido!";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 0;
+			overflow: hidden;
+			background: #872531;
+			transition: all .3s;
+			color: #FFF;
+			line-height: 350%;
+			font-size: 18px;
+			font-weight: bold;
+		}
+
+		.parcel--shadow {
+			box-shadow: 2px 3px 8px 1px rgba(0, 0, 0, 0.3);
+		}
+		
+
+		.btn-parcel:hover:after {
+			color: #FFF;
+			height: 100%;
+			transition: all .4s;
+		}
+		
+		.btn-parcel:active {
+			font-weight: 500;
+			color: #872531;
+		}
+
+		/* Footer */
+
+		.footer {
+			display: flex;
+			justify-content: center;
+			color: #858585;
+			text-transform: uppercase;
+			padding: 10px 10px 30px 10px;
+		}
+		
+		.footer-logo {
+			padding: 5px;
+			width: 18%;
+			text-align: center;
+		}
+
+		.footer-logo__item {
+			
+		}
+
+		.footer-logo__image {
+			margin-top: 65px;
+			max-width: 100%;
+		}
+
+		.footer-section {
+			padding: 8px;
+		}
+
+		.footer-about {
+
+		}
+
+		.footer-section__title {
+			font-weight: 500;
+			font-size: 20px;
+			border-bottom: 3px solid #858585;
+			display: table;
+			padding: 5px 50px 5px 1px;
+		}
+
+		.footer-about__text {
+			font-weight: 300;
+		}
+
+		.footer-contact {
+
+		}
+
+		.footer-contact {
+
+		}
+		
+		.footer-section__contacts {
+			display: flex;
+		}
+		
+		.icon {
+			margin-right: 10px;
+			width: 40px;
+		}
+
+		.icon:before {
+			content: "";
+			height: 100%;
+			width: 100%;
+			display: block;
+		}
+
+		.icon-telephone:before {
+			background-image: url(images/icon-tel.png);
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+		
+		.icon-email:before {
+			background-image: url(images/icon-email.png);
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+
+		.footer-telephones {
+
+		}
+		
+
+		.footer-telephones__telephone {
+
+		}
+
+		.footer-email {
+
+		}
+
+		/* Botão de submit do form modal */
+		
+		
+		.btn-submit {
+			height: 50px;
+			font-size: 20px;
+			background: #858585;
+			border: 2px solid #858585;
+			color: #FFF;
+			position: relative;
+			display: table;
+			transition: all .3s;
+		}
+		
+		.btn-submit:hover {
+			border-color: rgba(255, 255, 255, 0.5);
+			transition: all .3s;
+		}
+
+		.btn-submit:after {
+			content: "";
+			height: 0;
+			width: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: rgba(255, 255, 255, 0.5);
+			transition: all .3s;
+		}
+
+		.btn-submit:hover:after {
+			height: 100%;
+			transition: all .3s;
+		}
+	</style>
+</head>
+<body>
+	<header class="header">
+		<div class="header__search">
+			<form class="form form-search">
+				<input type="search" class="form__input form-search__input" placeholder="ENCONTRE O SEU PRODUTO">
+				<input type="image" class="icon-search" src="images/icon-lupa.png">
+			</form>
+		</div>
+
+		<a href="http://www.amare.com.br" class="logo__item"><img class="logo__image" src="images/logo-amare.png" alt="Logo Amare"></a>
+
+		<nav class="nav">
+			<ul class="nav__list">
+				<li class="nav__item"><a class="nav__link">Home</a></li>
+				<li class="nav__item"><a class="nav__link">Cardápio</a></li>
+				<li class="nav__item"><a class="nav__link">Sobre a gente</a></li>
+				<li class="nav__item"><a class="nav__link">Contato</a></li>
+				<li class="nav__item"><a class="nav__link">Encomendas</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main class="main">
+		<div class="main__products container">
+			<div class="product">
+				<figure class="product__item">
+					<img class="product__image" src="images/sobremesas.jpg">
+					<figcaption class="product__name">Sobremesas</figcaption>
+				</figure>
+			</div>
+
+			<div class="product">
+				<figure class="product__item">
+					<img class="product__image" src="images/tortas.jpg">
+					<figcaption class="product__name">Tortas</figcaption>
+				</figure>
+			</div>
+
+			<div class="product">
+				<figure class="product__item">
+					<img class="product__image" src="images/antepastos.jpg">
+					<figcaption class="product__name">Antepastos</figcaption>
+				</figure>
+			</div>
+		</div>
+
+		<div class="message-amare container">
+			<p class="message__text">
+				Amare é aquele gostinho especial de comida artesanam,<br>
+				feita com muito carinho e dedicação. Diferenciais cada vez<br>
+				mais raros de encontrar hoje em dia, onde muitos<br>
+				produtos são industrializados. Conheça nossos deliciosos<br>
+				antepastos, tortas salgadas, sobremesas<br>
+				e farofa de soja.
+			</p>
+
+			<p class="message__text">Apaixone se por Amare.</p>
+		</div>
+
+		<div class="parcel container">
+			<div class="parcel__content">
+				<div class="card-parcel parcel--shadow">
+					<h3 class="card-parcel__title">
+						Faça sua encomenda<br>
+						Agora mesmo!
+					</h3>
+
+					<p class="card-parcel__description">
+						Assista ao vídeo e descubra como<br>
+						é prático fazer o seu pedido e<br>
+						receber na sua casa nossas<br>
+						sobremesas, tortas e antepastos. 
+					</p>
+				</div>
+				
+				<style>
+					.amare-media {
+						position: relative;
+						border: 2px solid #872531;
+					}
+
+					.amare-media__video {
+						width: 100%;
+						height: 100%;
+					}
+
+					.amare-controls {
+						position: absolute;
+						top: 0;
+						left: 0;
+						height: 100%;
+						width: 100%;
+						background: rgba(0, 0, 0, 0.3);
+						transition: 1s; 
+					}
+			
+					.amare-controls__btn-control {
+						position: absolute;
+						left: 100px;
+						left: 50%;
+						top: 50%;
+						margin-top: -56px;
+						margin-left: 10px;
+						overflow: hidden;
+						border: none;
+						outline: none;
+						font-size: 0;
+						cursor: pointer;
+						transition: transform .5s linear;
+					}
+
+					.amare-controls__btn-control:hover {
+						transform: scale(1.1);
+						transition: transform .3s linear; 
+					}
+
+					.amare-controls--isplay,
+					.amare-controls--ispaused {
+						background: transparent;
+						height: 30px;
+						width: 30px;
+						display: block;
+					}
+
+					.amare-controls--isplay {
+						border-width: 40px;
+						border-style: solid;
+						border-color: transparent transparent transparent #FFF;
+					}
+
+					.amare-controls--ispaused {
+						background: transparent;
+						height: 70px;
+						width: 70px;
+						margin-top: -40px;
+						margin-left: -10px;
+						border-left: 20px solid #FFF;
+						border-right: 20px solid #FFF;
+						opacity: 0;
+					}
+
+					.amare-controls:hover .amare-controls--ispaused {
+						opacity: 1;
+						transition: opacity .5s, transform .5s;
+					}
+				</style>
+				<div class="amare-media">
+					<!-- <img src="images/video.png" alt=""> -->
+					<video class="amare-media__video" id="video" poster="images/video.png">
+						<source src="video/teste-video.mp4" type="video/mp4">
+					</video>
+
+					<div class="amare-controls">
+						<button class="amare-controls__btn-control amare-controls--isplay">Play</button>
+					</div> 
+				</div>
+			</div>
+
+			<button class="btn btn--center btn-parcel parcel--shadow">Clique e faça seu pedido!</button>
+		</div>
+	</main>
+
+	<footer class="footer">
+		<div class="footer-logo">
+			<a class="footer-logo__item">
+				<img class="footer-logo__image" src="images/logo-rodape.png" alt="">
+			</a> 
+		</div>
+
+		<div class="footer-section footer-about">
+			<h4 class="footer-section__title">Sobre a gente:</h4>
+			<p class="footer-about__text">
+				Amare é aquele gostinho especial de comida artesanal,<br>
+				feita com muito carinho e dedicação. Diferenciais cada<br>
+				vez mais raros de encontrar hoje em dia, onde muitos<br>
+				produtos são industrializados. Conheça nossos<br>
+				deliciosos antepastos, tortas salgadas e doces,<br>
+				sobremesas e farofa de soja.
+			</p>
+		</div>
+
+		<div class="footer-section footer-contact">
+			<h4 class="footer-section__title">Contato:</h4>
+
+			<div class="footer-section__contacts footer-section__telephones">
+				<div class="icon icon-telephone">
+				</div>
+
+				<div class="footer-telephones">
+					<p class="footer-telephones__telephone">(11) 9986 - 1668</p>
+					<p class="footer-telephones__telephone">(11) 98544 - 0130</p>
+				</div>
+			</div>
+
+			<div class="footer-section__contacts footer-section__emails">
+				<div class="icon icon-email">
+				</div>
+
+				<div class="footer__emails">
+					<p class="footer-email">
+						NONONONONONONONOONONONONO@NONONONO.COM.BR
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	
+	<div class="container-modal">
+		<div class="modal">
+			<a class="modal__close">x</a>
+			
+			<h3 class="modal__title">Faça o seu pedido</h3>
+
+			<form class="form form-modal" action="envia.php">
+				<input type="text" class="form__input form__input-modal form__input-name" placeholder="Nome:">
+				<input type="email" class="form__input form__input-modal form__input-email" placeholder="Email:">
+				<input type="tel" class="form__input form__input-modal form__input-tel" placeholder="Telefone:">
+
+				<textarea class="form__input form__input-modal form__input-textarea" placeholder="Mensagem:" spellcheck="true"></textarea>
+
+				<button type="submit" class="btn btn--center btn-submit">Enviar</button>
+			</form>
+		</div>
+	</div>
+
+	<script>
+		var $modal = document.querySelector(".container-modal"),
+			$btnModal = document.querySelector(".modal__close"),
+			$btnParcel = document.querySelector(".btn-parcel"),
+			$btnPlay = document.querySelector(".amare-controls__btn-control"),
+			$video = document.querySelector("#video"),
+			$document = document.documentElement,
+			$window = window.document;
+
+			$btnParcel.addEventListener("click", function() {
+				$modal.classList.add("is--visible");
+			});
+
+			$btnModal.addEventListener("click", function() {
+				$modal.classList.remove("is--visible");
+			});
+
+			function isPlay() {
+				if(video.paused) {
+					$video.play();
+					this.classList.add("amare-controls--ispaused");
+					this.classList.remove("amare-controls--isplay");
+				} else {
+					$video.pause();
+					this.classList.add("amare-controls--isplay");
+					this.classList.remove("amare-controls--ispaused");
+				}
+			}
+
+			// Menu fixo
+
+			function isFixedMenu() {
+				var $nav = document.querySelector(".nav"),
+					$document = document.documentElement;
+
+				if($document.scrollTop > 100) {
+					return $nav.classList.add("isFixed");
+				}
+
+				return $nav.classList.remove("isFixed");
+			}
+
+			$btnPlay.addEventListener("click", isPlay);
+
+			$window.addEventListener("scroll", isFixedMenu);
+	</script> 
+</body>
+</html>

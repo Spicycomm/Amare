@@ -1,0 +1,40 @@
+.form {
+	display: block;
+	background: #FFF;
+}
+
+.form-modal {
+	background: transparent;
+	text-align: center;
+}		
+
+.form-search {
+	width: 425px;
+}
+		
+.form__input {
+	height: 35px;
+	padding: 8px;
+	border: none;
+}
+
+.form__input-modal {
+	width: 80%;
+	margin-bottom: 10px;
+}
+
+.form-search__input {
+	text-align: right;
+	width: 370px;
+}
+
+.form__input-textarea {
+	height: 180px;
+}
+
+.icon-search {
+	text-align: center;
+	vertical-align: middle;
+	width: 20px;
+	cursor: pointer;
+}
