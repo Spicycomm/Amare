@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/base/geral.css">
 	<link rel="stylesheet" href="css/layout/modal.css">
+	<link rel="stylesheet" href="css/module/menu.css">
 	<link rel="stylesheet" href="css/module/form.css">
 	<style>
 
@@ -25,75 +26,6 @@
 		}
 
 
-		.logo__item {
-			
-		}
-
-		.logo__image {
-			margin-top: 50px;
-			max-width: 100%;
-		}
-
-		.nav {
-			margin-top: 60px;
-			background: #FFF;
-			transition: 2s;
-		}
-
-		.nav.isFixed {
-			position: fixed;
-			top: -61px;
-			left: 0;
-			width: 100%;
-			height: 80px;
-			display: flex;
-			align-items: center;
-			z-index: 5;
-			transition: 2s;
-		}
-
-		.nav__list {
-			display: flex;
-			margin: auto;
-			justify-content: center;
-			transition: 2s;
-		}
-		
-		.nav__item {
-			margin: auto 35px;
-			border-bottom: 4px solid transparent;
-			padding: 2px;
-			text-align: center;
-			transition: .5s border-bottom-color;
-			position: relative;
-		}
-		
-		
-
-		.nav__item:after {
-			content: "";
-			width: 114%;
-			height: 0;
-			background-color: #872531;
-			display: table;
-			position: absolute;
-			left: 50%;
-			margin: 5px auto;
-			margin-left: -57%;
-			transition: .4s;
-		}
-
-		.nav__item:hover:after {
-			height: 5px;
-			transition: .4s;
-		}
-
-		.nav__link {
-			text-transform: uppercase;
-			font-size: 18px;
-			color: #872531;
-		}
-		
 		/* Main */
 
 		.main {
@@ -446,9 +378,9 @@
 			</form>
 		</div>
 
-		<a href="http://www.amare.com.br" class="logo__item"><img class="logo__image" src="images/logo-amare.png" alt="Logo Amare"></a>
-
 		<nav class="nav">
+			<a href="http://www.amare.com.br" class="logo__item"><img class="logo__image" src="images/logo-amare.png" alt="Logo Amare"></a>
+
 			<ul class="nav__list">
 				<li class="nav__item"><a class="nav__link">Home</a></li>
 				<li class="nav__item"><a class="nav__link">Cardápio</a></li>
@@ -695,9 +627,9 @@
 
 			function isFixedMenu() {
 				var $nav = document.querySelector(".nav"),
-					$document = document.documentElement;
+					$document = document.documentElement; 
 
-				if($document.scrollTop > 100) {
+				if($document.scrollTop > $nav.offsetTop) {
 					return $nav.classList.add("isFixed");
 				}
 
