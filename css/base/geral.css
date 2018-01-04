@@ -21,3 +21,9 @@ a {
 	margin: auto;
 	width: 1170px;
 }
+
+@media (max-width: 1169px) {
+	.container {
+		width: 100%;
+	}
+}

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale= 1">
 	<title>Amare</title>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/base/geral.css">
@@ -30,6 +31,7 @@
 
 		.main {
 			background: #f9ae3a;
+			padding: 20px;
 		}
 
 
@@ -37,6 +39,7 @@
 		
 		.main__products {
 			display: flex;
+			flex-wrap: wrap;
 		}
 		
 		
@@ -381,13 +384,21 @@
 		<nav class="nav">
 			<a href="http://www.amare.com.br" class="logo__item"><img class="logo__image" src="images/logo-amare.png" alt="Logo Amare"></a>
 
-			<ul class="nav__list">
-				<li class="nav__item"><a class="nav__link">Home</a></li>
-				<li class="nav__item"><a class="nav__link">Cardápio</a></li>
-				<li class="nav__item"><a class="nav__link">Sobre a gente</a></li>
-				<li class="nav__item"><a class="nav__link">Contato</a></li>
-				<li class="nav__item"><a class="nav__link">Encomendas</a></li>
-			</ul>
+			<div class="nav__menu">
+				<div class="nav__toggle-menu">
+					<span class="nav__toggle-item"></span>
+					<span class="nav__toggle-item"></span>
+					<span class="nav__toggle-item"></span>
+				</div>
+
+				<ul class="nav__list">
+					<li class="nav__item"><a class="nav__link">Home</a></li>
+					<li class="nav__item"><a class="nav__link">Cardápio</a></li>
+					<li class="nav__item"><a class="nav__link">Sobre a gente</a></li>
+					<li class="nav__item"><a class="nav__link">Contato</a></li>
+					<li class="nav__item"><a class="nav__link">Encomendas</a></li>
+				</ul>
+			</div>
 		</nav>
 	</header>
 
@@ -601,7 +612,8 @@
 			$btnPlay = document.querySelector(".amare-controls__btn-control"),
 			$video = document.querySelector("#video"),
 			$document = document.documentElement,
-			$window = window.document;
+			$window = window.document,
+			$navToggle = document.querySelector(".nav__toggle-menu");
 
 			$btnParcel.addEventListener("click", function() {
 				$modal.classList.add("is--visible");
@@ -636,9 +648,17 @@
 				return $nav.classList.remove("isFixed");
 			}
 
+			function isMenuMobile() {
+				var $nav = document.querySelector(".nav__list");
+
+				$nav.classList.toggle("toggle-menu");
+			}
+
 			$btnPlay.addEventListener("click", isPlay);
 
 			$window.addEventListener("scroll", isFixedMenu);
+
+			$navToggle.addEventListener("click", isMenuMobile);
 	</script> 
 </body>
 </html>
