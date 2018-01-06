@@ -77,10 +77,6 @@
 }
 
 @media (max-width: 978px) {
-	.main__products {
-		
-	}
-	
 	.product {
 		width: 27%;
 	}
