@@ -1,0 +1,58 @@
+/* Card parcel */
+
+.card-parcel {
+	margin-top: 60px;
+	background: #FFF;
+	width: 44%;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 8px 15px;
+	float: left;
+	vertical-align: middle;
+}
+
+.card-parcel__title {
+	background: #872531;
+	color: #FFF;
+	font-size: 25px;
+	padding: 12px;
+	position: relative;
+	width: 108%;
+	right: 24px;
+}
+
+.card-parcel__description {
+	color: #872531;
+	word-spacing: 3px;
+	line-height: 21px;
+}
+
+@media (max-width: 1210px) {
+	.card-parcel {
+		float: none;
+		width: 100%;
+		display: inline-block;
+	}
+
+	.card-parcel__title {
+		width: 108%;
+		right: 4%;
+		font-size: 1.9rem;
+	}
+
+	.card-parcel__description {
+		font-size: 1.6rem;
+		line-height: 28px;
+	}
+}
+
+@media (max-width: 656px) {
+	.card-parcel__title {
+		font-size: 1.6rem;
+	}
+
+	.card-parcel__description {
+		font-size: 1.1rem;
+		line-height: 28px;
+	}
+}

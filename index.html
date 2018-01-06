@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="css/module/product.css">
 	<link rel="stylesheet" href="css/module/form.css">
 	<link rel="stylesheet" href="css/module/message.css">
+	<link rel="stylesheet" href="css/layout/parcel.css">
+	<link rel="stylesheet" href="css/module/card-parcel.css">
+	<link rel="stylesheet" href="css/module/video-player.css">
 	<style>
 
 		.header {
@@ -36,65 +39,13 @@
 			padding: 20px;
 		}
 
-
-
-		/* Parcel */
-
-		.parcel {
-			margin-top: 90px;
-			padding-bottom: 60px;
-		}
-		
-		.parcel__content {
-			width: 100%;
+		@media (max-width: 1150px) {
+			.main {
+				padding: 20px 40px;
+			}
 		}
 
-		.parcel__content:before,
-		.parcel__content:after {
-			content: '';
-			display: table;
-		}
-
-		.parcel__content:after {
-			clear: both;
-		}
-
-		.card-parcel {
-			margin-top: 60px;
-			background: #FFF;
-			width: 44%;
-			text-align: center;
-			text-transform: uppercase;
-			padding: 8px 15px;
-			float: left;
-			vertical-align: middle;
-		}
-
-		.card-parcel__title {
-			background: #872531;
-			color: #FFF;
-			font-size: 25px;
-			padding: 12px;
-			position: relative;
-			width: 108%;
-			right: 24px;
-		}
-
-		.card-parcel__description {
-			color: #872531;
-			word-spacing: 3px;
-			line-height: 21px;
-		}
-
-		.amare-media {
-			width: 56%;
-			float: left;
-		}
-
-		.parcel__video img {
-			width: 100%;
-		}
-		
+		 
 		.btn {
 			width: 370px;
 			height: 65px;
@@ -366,79 +317,7 @@
 					</p>
 				</div>
 				
-				<style>
-					.amare-media {
-						position: relative;
-						border: 2px solid #872531;
-					}
-
-					.amare-media__video {
-						width: 100%;
-						height: 100%;
-					}
-
-					.amare-controls {
-						position: absolute;
-						top: 0;
-						left: 0;
-						height: 100%;
-						width: 100%;
-						background: rgba(0, 0, 0, 0.3);
-						transition: 1s; 
-					}
-			
-					.amare-controls__btn-control {
-						position: absolute;
-						left: 100px;
-						left: 50%;
-						top: 50%;
-						margin-top: -56px;
-						margin-left: 10px;
-						overflow: hidden;
-						border: none;
-						outline: none;
-						font-size: 0;
-						cursor: pointer;
-						transition: transform .5s linear;
-					}
-
-					.amare-controls__btn-control:hover {
-						transform: scale(1.1);
-						transition: transform .3s linear; 
-					}
-
-					.amare-controls--isplay,
-					.amare-controls--ispaused {
-						background: transparent;
-						height: 30px;
-						width: 30px;
-						display: block;
-					}
-
-					.amare-controls--isplay {
-						border-width: 40px;
-						border-style: solid;
-						border-color: transparent transparent transparent #FFF;
-					}
-
-					.amare-controls--ispaused {
-						background: transparent;
-						height: 70px;
-						width: 70px;
-						margin-top: -40px;
-						margin-left: -10px;
-						border-left: 20px solid #FFF;
-						border-right: 20px solid #FFF;
-						opacity: 0;
-					}
-
-					.amare-controls:hover .amare-controls--ispaused {
-						opacity: 1;
-						transition: opacity .5s, transform .5s;
-					}
-				</style>
 				<div class="amare-media">
-					<!-- <img src="images/video.png" alt=""> -->
 					<video class="amare-media__video" id="video" poster="images/video.png">
 						<source src="video/teste-video.mp4" type="video/mp4">
 					</video>

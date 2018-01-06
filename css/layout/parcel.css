@@ -1,0 +1,27 @@
+/* Parcel */
+
+		.parcel {
+			margin-top: 90px;
+			padding-bottom: 60px;
+		}
+		
+		.parcel__content {
+			width: 100%;
+		}
+
+		.parcel__content:before,
+		.parcel__content:after {
+			content: '';
+			display: table;
+		}
+
+		.parcel__content:after {
+			clear: both;
+		}
+
+
+@media (max-width: 1210px) {
+	.parcel {
+		text-align: center;
+	}
+}
