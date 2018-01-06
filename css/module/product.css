@@ -88,16 +88,22 @@
 
 @media (max-width: 750px) {
 	.main__products {
-		justify-content: flex-start;
+		text-align: center;
 	}
 	
 	.product {
-		width: 40%;
-		margin-right: 0;
-		outline: 1px solid green;
+		width: 80%;
+		margin-right: 0 !important;
 	}
 
 	.product__image {
+		width: 100%;
+	}
+}
+
+@media (max-width: 500px) {
+	
+	.product {
 		width: 100%;
 	}
 }
