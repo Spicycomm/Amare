@@ -213,11 +213,11 @@
 			<h3 class="modal__title">Faça o seu pedido</h3>
 
 			<form class="form form-modal" action="envia.php">
-				<input type="text" class="form__input form__input-modal form__input-name" placeholder="Nome:">
-				<input type="email" class="form__input form__input-modal form__input-email" placeholder="Email:">
-				<input type="tel" class="form__input form__input-modal form__input-tel" placeholder="Telefone:">
+				<input type="text" class="form__input form__input-modal form__input-name" placeholder="Nome:" required>
+				<input type="email" class="form__input form__input-modal form__input-email" placeholder="Email:" required>
+				<input type="tel" class="form__input form__input-modal form__input-tel" placeholder="Telefone:" required>
 
-				<textarea class="form__input form__input-modal form__input-textarea" placeholder="Mensagem:" spellcheck="true"></textarea>
+				<textarea class="form__input form__input-modal form__input-textarea" placeholder="Mensagem:" spellcheck="true" required></textarea>
 
 				<button type="submit" class="btn btn--center btn-submit">Enviar</button>
 			</form>
