@@ -24,8 +24,15 @@
 }
 
 .form-search__input {
-	text-align: right;
 	width: 370px;
+}
+
+.form-search__input::-webkit-input-placeholder {
+	text-align: right;
+}
+
+.form-search__input:-moz-placeholder {
+	text-align: right;
 }
 
 .form__input-textarea {

@@ -6,6 +6,7 @@
 	<title>Amare</title>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/base/geral.css">
+	<link rel="stylesheet" href="css/layout/header.css">
 	<link rel="stylesheet" href="css/layout/modal.css">
 	<link rel="stylesheet" href="css/module/menu.css">
 	<link rel="stylesheet" href="css/module/button.css">
@@ -19,20 +20,7 @@
 	<link rel="stylesheet" href="css/module/video-player.css">
 	<style>
 
-		.header {
-			width: 100%;
-			text-align: center;
-			margin-bottom: 50px;
-		}
-
-		.header__search {
-			background: #f9ae3a;
-			height: 60px;
-			padding: 10px;
-			display: flex;
-			align-items: center;
-			justify-content: flex-end;
-		}
+		
 
 
 		/* Main */
@@ -73,23 +61,10 @@
 			background-repeat: no-repeat;
 			background-position: center;
 		}
-
-		.footer-telephones {
-
-		}
-		
-
-		.footer-telephones__telephone {
-
-		}
-
-		.footer-email {
-
-		}
 	</style>
 </head>
 <body>
-	<header class="header">
+	<header class="header" id="home">
 		<div class="header__search">
 			<form class="form form-search">
 				<input type="search" class="form__input form-search__input" placeholder="ENCONTRE O SEU PRODUTO">
@@ -99,27 +74,27 @@
 
 		<nav class="nav">
 			<a href="http://www.amare.com.br" class="logo__item"><img class="logo__image" src="images/logo-amare.png" alt="Logo Amare"></a>
+			
+			<div class="nav__toggle-menu">
+				<span class="nav__toggle-item"></span>
+				<span class="nav__toggle-item"></span>
+				<span class="nav__toggle-item"></span>
+			</div>
 
 			<div class="nav__menu">
-				<div class="nav__toggle-menu">
-					<span class="nav__toggle-item"></span>
-					<span class="nav__toggle-item"></span>
-					<span class="nav__toggle-item"></span>
-				</div>
-
 				<ul class="nav__list">
-					<li class="nav__item"><a class="nav__link">Home</a></li>
-					<li class="nav__item"><a class="nav__link">Cardápio</a></li>
-					<li class="nav__item"><a class="nav__link">Sobre a gente</a></li>
-					<li class="nav__item"><a class="nav__link">Contato</a></li>
-					<li class="nav__item"><a class="nav__link">Encomendas</a></li>
+					<li class="nav__item"><a class="nav__link" href="#home">Home</a></li>
+					<li class="nav__item"><a class="nav__link" href="#cardapio">Cardápio</a></li>
+					<li class="nav__item"><a class="nav__link" href="#sobre">Sobre a gente</a></li>
+					<li class="nav__item"><a class="nav__link" href="#contato">Contato</a></li>
+					<li class="nav__item"><a class="nav__link" href="#encomendas">Encomendas</a></li>
 				</ul>
 			</div>
 		</nav>
 	</header>
 
 	<main class="main">
-		<div class="main__products container">
+		<div class="main__products container" id="cardapio">
 			<div class="product">
 				<figure class="product__item">
 					<img class="product__image" src="images/sobremesas.jpg">
@@ -155,7 +130,7 @@
 			<p class="message__text">Apaixone se por Amare.</p>
 		</div>
 
-		<div class="parcel container">
+		<div class="parcel container" id="encomendas">
 			<div class="parcel__content">
 				<div class="card-parcel parcel--shadow">
 					<h3 class="card-parcel__title">
@@ -193,7 +168,7 @@
 			</a> 
 		</div>
 
-		<div class="footer-section footer-about">
+		<div class="footer-section footer-about" id="sobre">
 			<h4 class="footer-section__title">Sobre a gente:</h4>
 			<p class="footer-about__text">
 				Amare é aquele gostinho especial de comida artesanal,<br>
@@ -205,7 +180,7 @@
 			</p>
 		</div>
 
-		<div class="footer-section footer-contact">
+		<div class="footer-section footer-contact" id="contato">
 			<h4 class="footer-section__title">Contato:</h4>
 
 			<div class="footer-section__contacts footer-section__telephones">
@@ -248,7 +223,9 @@
 			</form>
 		</div>
 	</div>
-
+	
+	<script src="js/jquery.min.js"></script>
+	<script src="js/lightbox.js"></script>
 	<script>
 		var $modal = document.querySelector(".container-modal"),
 			$btnModal = document.querySelector(".modal__close"),
@@ -282,10 +259,11 @@
 			// Menu fixo
 
 			function isFixedMenu() {
-				var $nav = document.querySelector(".nav"),
+				var $navMenu = document.querySelector(".nav__menu"),
+					$nav  = document.querySelector(".nav"),
 					$document = document.documentElement; 
 
-				if($document.scrollTop > $nav.offsetTop) {
+				if($document.scrollTop > $navMenu.offsetTop) {
 					return $nav.classList.add("isFixed");
 				}
 
@@ -297,6 +275,19 @@
 
 				$nav.classList.toggle("toggle-menu");
 			}
+
+			$(".nav__link").click(function(evt) {
+				evt.preventDefault();
+				
+				var id = $(this).attr("href");
+				var targetOffset = $(id).offset().top -  document.querySelector(".nav__menu").clientHeight - 200; 
+				
+				
+				$("html, body").animate({
+					scrollTop: targetOffset
+				}, 500);
+			});  
+
 
 			$btnPlay.addEventListener("click", isPlay);
 

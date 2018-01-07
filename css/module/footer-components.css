@@ -45,7 +45,21 @@
 		.footer-section__contacts {
 			display: flex;
 		}
+	
 
+		.footer-telephones {
+
+		}
+		
+
+		.footer-telephones__telephone {
+
+		}
+
+		.footer-email {
+
+		}
+		
 @media (max-width: 1223px) {
 	.footer-logo {
 		order: 2;
