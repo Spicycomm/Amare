@@ -47,12 +47,29 @@
 }
 
 @media (max-width: 656px) {
+	.card-parcel {
+		margin-top: 20px;
+	}
+
 	.card-parcel__title {
 		font-size: 1.6rem;
 	}
 
 	.card-parcel__description {
 		font-size: 1.1rem;
+		line-height: 28px;
+	}
+}
+
+@media (max-width: 490px) {
+	.card-parcel__title {
+		width: 114%;
+		font-size: 1.3rem;
+		right: 7%; 
+	}
+
+	.card-parcel__description {
+		font-size: 0.9rem;
 		line-height: 28px;
 	}
 }
